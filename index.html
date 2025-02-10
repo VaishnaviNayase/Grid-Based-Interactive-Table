@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Grid</title>
+        <style>
+            table
+	        {
+                border-collapse: collapse;
+    	        border: 1px solid black; 
+        	}
+            td, th 
+	        {
+                border: 1px solid black; 
+                padding: 20px; 
+            }	
+	        .selected
+	        {
+		        background-color : blue;
+	        }
+	        .prevent-select {
+  		        -webkit-user-select: none; 
+  		        -ms-user-select: none; 
+  		        user-select: none; 
+	        }
+            .context_menu 
+            {
+                position :absolute;
+                text-align: left;
+                display : none;
+                border: 1px solid black;
+            }	
+            .context_menu ul li 
+            {
+                position: relative;
+            }
+            .nested_menu
+            {
+                position :absolute;
+                text-align: left;
+                left: 100%;
+                top: 0%;
+                display : none;
+                padding: 5px;
+                border: 1px solid black;
+                background-color: white;
+            }	
+            .nested_menu ul li {
+                position: relative;
+            }
+            #nestedMenu:hover .nested_menu{
+                display: block;
+            }	
+        </style>
+    </head>
+    <body>
+        <label for="gcolor">Color for grid:</label>
+        <input type="color" id="gcolor" value="#ff0000">
+        <label for="startR">Start Rows:</label>
+        <input type="number" id="startR">
+        <label for="startC">Start Columns:</label>
+        <input type="number" id="startC">
+        <label for="endR">End Rows:</label>
+        <input type="number" id="endR">
+        <label for="endC">End Columns:</label>
+        <input type="number" id="endC">
+	    <button onclick="createGrid()">Update Table</button>
+	    <button onclick="saveTable()">Save Table</button>
+        <button onclick="loadTable()">Load Table</button>
+        <div id="table-container"></div>
+        <div id="contextMenu" class="context_menu" style="display:none">
+            <ul style="list-style:none; padding:0; margin:0; background-color:white; border:1px solid #ccc;">
+                <li id="copyOption" style="padding:8px; cursor:pointer;">Copy</li>
+                <li id="pasteOption" style="padding:8px; cursor:pointer;">Paste</li>
+                <li id="newGroup" style="padding:8px; cursor:pointer;">New Group</li>
+                <li id="addObjects" style="padding:8px; cursor:pointer;">Add to Group</li>
+                <li id="nestedMenu" style="padding:8px; cursor:pointer;">List of grid >
+                    <div id="nestedContextMenu" class="nested_menu">
+                        <ul style="list-style:none; padding:0; margin:0; background-color:white; border:1px solid #ccc;">      
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <script src="grid.js" defer></script>
+    </body>
+</html>

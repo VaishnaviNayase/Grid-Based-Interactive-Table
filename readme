@@ -1,0 +1,9 @@
+Features :
+	- Select a subgrid using mouse events (mousedown, mousemove, mouseup). A subgrid will be created with specified starting and ending coordinates, and it should not overlap any other subgrid.  
+	- The subgrid to be moved around the large grid, saving its dimensions, color, and values.
+	- The user can copy a selected subgrid and paste it at another position within the large grid.
+	- Save the grid state (positions of subgrids) and load it back when needed.
+
+
+How to run:
+	open the "index.html" in browser.
